@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"  
+android:layout_width="match_parent"  
+android:layout_height="match_parent"  
+android:orientation="vertical"  
+android:background="#F5F5F5">
+
+<!-- Header -->  
+
+<LinearLayout  
+    android:layout_width="match_parent"  
+    android:layout_height="56dp"  
+    android:orientation="horizontal"  
+    android:gravity="center_vertical"  
+    android:background="#5A22D8"  
+    android:paddingStart="16dp"  
+    android:paddingEnd="16dp">  
+
+    <ImageView  
+        android:layout_width="24dp"  
+        android:layout_height="24dp"  
+        android:src="@android:drawable/ic_menu_sort_by_size"  
+        android:tint="#FFFFFF"/>  
+
+    <TextView  
+        android:layout_width="0dp"  
+        android:layout_height="wrap_content"  
+        android:layout_weight="1"  
+        android:text="Digital Bus Pass"  
+        android:textColor="#FFFFFF"  
+        android:textStyle="bold"  
+        android:textSize="20sp"  
+        android:gravity="center"/>  
+
+    <ImageView  
+        android:layout_width="24dp"  
+        android:layout_height="24dp"  
+        android:src="@android:drawable/ic_menu_info_details"  
+        android:tint="#FFFFFF"/>  
+
+</LinearLayout>  
+
+<!-- Blue Route Card -->  
+
+<LinearLayout  
+    android:layout_width="match_parent"  
+    android:layout_height="150dp"  
+    android:layout_margin="12dp"  
+    android:orientation="vertical"  
+    android:gravity="center"  
+    android:background="@drawable/blue_card">  
+
+    <TextView  
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:text="Thane Stn. E Kopari"  
+        android:textStyle="bold"  
+        android:textSize="18sp"  
+        android:textColor="#FFFFFF"/>  
+
+    <TextView  
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:text="⇄"  
+        android:textSize="30sp"  
+        android:textStyle="bold"  
+          
+        android:textColor="#FFFFFF"  
+        android:paddingTop="6dp"  
+        android:paddingBottom="6dp"/>  
+
+    <TextView  
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:text="TCS Olympus"  
+        android:textStyle="bold"  
+        android:textSize="18sp"  
+        android:textColor="#FFFFFF"/>  
+
+    <LinearLayout  
+        android:layout_width="match_parent"  
+        android:layout_height="wrap_content"  
+        android:orientation="horizontal"  
+        android:paddingStart="18dp"  
+        android:paddingEnd="18dp"  
+        android:layout_marginTop="12dp">  
+
+        <TextView  
+            android:layout_width="0dp"  
+            android:layout_height="wrap_content"  
+            android:layout_weight="1"  
+            android:text="Office In - 09:20"  
+            android:textStyle="bold"  
+            android:textColor="#FFFFFF"/>  
+
+        <TextView  
+            android:layout_width="wrap_content"  
+            android:layout_height="wrap_content"  
+            android:text="Office Out - 19:45"  
+            android:textStyle="bold"  
+            android:textColor="#FFFFFF"/>  
+
+    </LinearLayout>  
+
+</LinearLayout>  
+
+<FrameLayout  
+    android:id="@+id/passContainer"  
+    android:layout_width="match_parent"  
+    android:layout_height="0dp"  
+    android:layout_weight="1"  
+    android:layout_margin="12dp">  
+
+    <!-- ================= QR PAGE ================= -->  
+
+    <LinearLayout  
+        android:id="@+id/qrLayout"  
+        android:layout_width="match_parent"  
+        android:layout_height="match_parent"  
+        android:orientation="vertical"  
+        android:background="@drawable/pass_card"  
+        android:padding="18dp">  
+		  
+		
+		  
+		 <TextView  
+            android:layout_width="match_parent"  
+            android:layout_height="wrap_content"  
+            android:text="Confirmed Bus Pass"  
+            android:textStyle="bold"  
+            android:textSize="18sp"  
+            android:textColor="#555555"  
+            android:gravity="center"  
+            android:layout_marginTop="6dp"/>  
+
+        <View
+    android:layout_width="match_parent"
+    android:layout_height="2dp"
+    android:layout_marginStart="18dp"
+    android:layout_marginEnd="18dp"
+    android:layout_marginTop="12dp"
+    android:background="@drawable/dotted_line"/>
+
+        <ImageView  
+            android:id="@+id/imgQR"  
+            android:layout_width="310dp"  
+            android:layout_height="310dp"  
+            android:layout_gravity="center_horizontal"  
+            android:layout_marginTop="16dp"  
+            android:scaleType="fitCenter"/>  
+
+        <Button  
+            android:id="@+id/btnDetails"  
+            android:layout_width="match_parent"  
+            android:layout_height="48dp"  
+            android:layout_marginStart="18dp"  
+            android:layout_marginEnd="18dp"  
+            android:layout_marginTop="18dp"  
+            android:text="View Details"  
+            android:textAllCaps="false"  
+            android:textStyle="bold"  
+            android:textColor="#FFFFFF"  
+            android:backgroundTint="#5A22D8"/>  
+
+        <ImageView  
+            android:layout_width="180dp"  
+            android:layout_height="60dp"  
+            android:layout_gravity="center_horizontal"  
+            android:layout_marginTop="18dp"  
+            android:src="@drawable/tcs_logo"  
+            android:scaleType="fitCenter"/>  
+
+    </LinearLayout>  
+
+    <!-- ================= DETAILS PAGE ================= -->  
+
+       <!-- ================= DETAILS PAGE ================= -->
+
+<LinearLayout  
+android:id="@+id/detailsLayout"  
+android:layout_width="match_parent"  
+android:layout_height="match_parent"  
+android:orientation="vertical"  
+android:background="#F5F5F5"  
+android:padding="12dp"  
+android:visibility="gone">
+
+<!-- White Card -->  
+<LinearLayout  
+    android:layout_width="match_parent"  
+    android:layout_height="match_parent"  
+    android:orientation="vertical"  
+    android:background="@drawable/pass_card"  
+    android:elevation="6dp">  
+
+    
+
+    <TextView  
+        android:layout_width="match_parent"  
+        android:layout_height="wrap_content"  
+        android:text="Confirmed Bus Pass"  
+        android:textStyle="bold"  
+        android:textSize="18sp"  
+        android:textColor="#555555"  
+        android:gravity="center"  
+        android:layout_marginTop="18dp"/>  
+
+    <View
+    android:layout_width="match_parent"
+    android:layout_height="2dp"
+    android:layout_marginStart="18dp"
+    android:layout_marginEnd="18dp"
+    android:layout_marginTop="12dp"
+    android:background="@drawable/dotted_line"/>
+
+    <!-- Row 1 -->  
+
+    <LinearLayout  
+        android:layout_width="match_parent"  
+        android:layout_height="wrap_content"  
+        android:orientation="horizontal"  
+        android:paddingStart="18dp"  
+        android:paddingEnd="18dp"  
+        android:layout_marginTop="24dp">  
+
+        <LinearLayout  
+            android:layout_width="0dp"  
+            android:layout_height="wrap_content"  
+            android:layout_weight="1"  
+            android:orientation="vertical">  
+
+            <TextView  
+                android:layout_width="wrap_content"  
+                android:layout_height="wrap_content"  
+                android:text="Name"  
+                android:textColor="#888888"  
+                android:textSize="14sp"/>  
+
+            <TextView  
+                android:layout_width="wrap_content"  
+                android:layout_height="wrap_content"  
+                android:text="SURAJ GUPTA"  
+                android:textColor="#555555"  
+                android:textSize="16sp"  
+                android:layout_marginTop="6dp"/>  
+
+        </LinearLayout>  
+
+        <LinearLayout  
+            android:layout_width="0dp"  
+            android:layout_height="wrap_content"  
+            android:layout_weight="1"  
+            android:orientation="vertical"  
+            android:gravity="end">  
+
+            <TextView  
+                android:layout_width="wrap_content"  
+                android:layout_height="wrap_content"  
+                android:text="Employee ID"  
+                android:textColor="#888888"  
+                android:textSize="14sp"/>  
+
+            <TextView  
+                android:layout_width="wrap_content"  
+                android:layout_height="wrap_content"  
+                android:text="2919053"  
+                android:textColor="#555555"  
+                android:textSize="16sp"  
+                android:layout_marginTop="6dp"/>  
+
+        </LinearLayout>  
+
+    </LinearLayout>  
+	  
+	  
+	  
+              <!-- Row 2 -->  
+
+    <LinearLayout  
+        android:layout_width="match_parent"  
+        android:layout_height="wrap_content"  
+        android:orientation="horizontal"  
+        android:paddingStart="18dp"  
+        android:paddingEnd="18dp"  
+        android:layout_marginTop="28dp">  
+
+        <LinearLayout  
+            android:layout_width="0dp"  
+            android:layout_height="wrap_content"  
+            android:layout_weight="1"  
+            android:orientation="vertical">  
+
+            <TextView  
+                android:layout_width="wrap_content"  
+                android:layout_height="wrap_content"  
+                android:text="Bus Stop Name"  
+                android:textColor="#888888"  
+                android:textSize="14sp"/>  
+
+            <TextView  
+                android:layout_width="wrap_content"  
+                android:layout_height="wrap_content"  
+                android:text="Thane Stn. E Kopari"  
+                android:textColor="#555555"  
+                android:textSize="16sp"  
+                android:layout_marginTop="6dp"/>  
+
+        </LinearLayout>  
+
+        <LinearLayout  
+            android:layout_width="0dp"  
+            android:layout_height="wrap_content"  
+            android:layout_weight="1"  
+            android:orientation="vertical"  
+            android:gravity="end">  
+
+            <TextView  
+                android:layout_width="wrap_content"  
+                android:layout_height="wrap_content"  
+                android:text="Route Type"  
+                android:textColor="#888888"  
+                android:textSize="14sp"/>  
+
+            <TextView  
+                android:layout_width="wrap_content"  
+                android:layout_height="wrap_content"  
+                android:text="Both"  
+                android:textColor="#555555"  
+                android:textSize="16sp"  
+                android:layout_marginTop="6dp"/>  
+
+        </LinearLayout>  
+
+    </LinearLayout>  
+
+    <!-- Row 3 -->  
+
+    <LinearLayout  
+        android:layout_width="match_parent"  
+        android:layout_height="wrap_content"  
+        android:orientation="horizontal"  
+        android:paddingStart="18dp"  
+        android:paddingEnd="18dp"  
+        android:layout_marginTop="28dp">  
+
+        <LinearLayout  
+            android:layout_width="0dp"  
+            android:layout_height="wrap_content"  
+            android:layout_weight="1"  
+            android:orientation="vertical">  
+
+            <TextView  
+                android:layout_width="wrap_content"  
+                android:layout_height="wrap_content"  
+                android:text="Start Date"  
+                android:textColor="#888888"  
+                android:textSize="14sp"/>  
+
+            <TextView  
+                android:layout_width="wrap_content"  
+                android:layout_height="wrap_content"  
+                android:text="1st Aug 2026"  
+                android:textColor="#555555"  
+                android:textSize="16sp"  
+                android:layout_marginTop="6dp"/>  
+
+        </LinearLayout>  
+
+        <LinearLayout  
+            android:layout_width="0dp"  
+            android:layout_height="wrap_content"  
+            android:layout_weight="1"  
+            android:orientation="vertical"  
+            android:gravity="end">  
+
+            <TextView  
+                android:layout_width="wrap_content"  
+                android:layout_height="wrap_content"  
+                android:text="End Date"  
+                android:textColor="#888888"  
+                android:textSize="14sp"/>  
+
+            <TextView  
+                android:layout_width="wrap_content"  
+                android:layout_height="wrap_content"  
+                android:text="31st Aug 2026"  
+                android:textColor="#555555"  
+                android:textSize="16sp"  
+                android:layout_marginTop="6dp"/>  
+
+        </LinearLayout>  
+
+    </LinearLayout>  
+
+    <TextView  
+        android:layout_width="match_parent"  
+        android:layout_height="wrap_content"  
+        android:layout_marginTop="28dp"  
+        android:gravity="center"  
+        android:text="Route : Thane Stn. E Kopari To TCS Olympus&#10;And Return Via-FAST"  
+        android:textColor="#666666"  
+        android:textSize="15sp"/>  
+
+    <Button  
+        android:id="@+id/btnQR"  
+        android:layout_width="match_parent"  
+        android:layout_height="48dp"  
+        android:layout_marginStart="18dp"  
+        android:layout_marginEnd="18dp"  
+        android:layout_marginTop="26dp"  
+        android:text="View QR"  
+        android:textAllCaps="false"  
+        android:textStyle="bold"  
+        android:textColor="#FFFFFF"  
+        android:backgroundTint="#5A22D8"/>  
+
+    <Space  
+        android:layout_width="match_parent"  
+        android:layout_height="0dp"  
+        android:layout_weight="1"/>  
+
+    <ImageView  
+        android:layout_width="180dp"  
+        android:layout_height="60dp"  
+        android:layout_gravity="center"  
+        android:layout_marginBottom="5dp"  
+        android:src="@drawable/tcs_logo"  
+        android:scaleType="fitCenter"/>  
+
+</LinearLayout> <!-- White Card -->
+
+</LinearLayout> <!-- detailsLayout -->
+
+</FrameLayout>
+
+</LinearLayout>
