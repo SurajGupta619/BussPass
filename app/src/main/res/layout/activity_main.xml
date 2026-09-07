@@ -2,6 +2,7 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -26,13 +27,14 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Digital Bus Pass"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:textSize="20sp"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:includeFontPadding="false"/>
 
         <ImageView
             android:layout_width="24dp"
@@ -42,50 +44,87 @@
 
     </LinearLayout>
 
+
     <!-- ================= BLUE ROUTE CARD ================= -->
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_margin="12dp"
-        android:orientation="vertical"
-        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:minHeight="140dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="16dp"
         android:background="@drawable/blue_card">
 
+        <!-- Bus Stop -->
+
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/txtFromStop"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Thane Stn. E Kopari"
             android:textStyle="bold"
             android:textSize="18sp"
             android:textColor="#FFFFFF"
-            android:singleLine="true"/>
+            android:gravity="center"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:includeFontPadding="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Direction -->
 
         <TextView
+            android:id="@+id/txtDirection"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="⇄"
             android:textSize="30sp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
-            android:paddingTop="6dp"
-            android:paddingBottom="6dp"/>
+            android:gravity="center"
+            android:includeFontPadding="true"
+            android:layout_marginTop="2dp"
+            app:layout_constraintTop_toBottomOf="@id/txtFromStop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Destination -->
 
         <TextView
+            android:id="@+id/txtToStop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TCS Olympus"
             android:textStyle="bold"
             android:textSize="18sp"
-            android:textColor="#FFFFFF"/>
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:includeFontPadding="true"
+            android:layout_marginTop="2dp"
+            app:layout_constraintTop_toBottomOf="@id/txtDirection"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Office Timing Row -->
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingStart="18dp"
-            android:paddingEnd="18dp"
-            android:layout_marginTop="12dp">
+            android:gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/txtToStop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
 
             <TextView
                 android:layout_width="0dp"
@@ -93,20 +132,27 @@
                 android:layout_weight="1"
                 android:text="Office In - 09:20"
                 android:textStyle="bold"
+                android:textSize="16sp"
                 android:textColor="#FFFFFF"
-                android:singleLine="true"/>
+                android:gravity="start|center_vertical"
+                android:singleLine="true"
+                android:ellipsize="end"/>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Office Out - 19:45"
                 android:textStyle="bold"
+                android:textSize="16sp"
                 android:textColor="#FFFFFF"
-                android:singleLine="true"/>
+                android:gravity="end|center_vertical"
+                android:singleLine="true"
+                android:ellipsize="end"/>
 
         </LinearLayout>
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <!-- ================= PASS PAGES CONTAINER ================= -->
@@ -142,40 +188,53 @@
 
                 <!-- White QR Card -->
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
                     android:background="@drawable/pass_card"
                     android:elevation="6dp"
                     android:padding="18dp">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:id="@+id/txtQrTitle"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:text="Confirmed Bus Pass"
                         android:textStyle="bold"
                         android:textSize="18sp"
                         android:textColor="#555555"
                         android:gravity="center"
-                        android:layout_marginTop="5dp"/>
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
 
                     <View
-    android:layout_width="match_parent"
-    android:layout_height="2dp"
-    android:layout_marginTop="12dp"
-    android:layerType="software"
-    android:background="@drawable/dotted_line"/>
+                        android:id="@+id/dividerQr"
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="12dp"
+                        android:layerType="software"
+                        android:background="@drawable/dotted_line"
+                        app:layout_constraintTop_toBottomOf="@id/txtQrTitle"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
 
                     <ImageView
                         android:id="@+id/imgQR"
-                        android:layout_width="310dp"
-                        android:layout_height="310dp"
-                        android:layout_gravity="center_horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
                         android:layout_marginTop="16dp"
-                        android:scaleType="fitCenter"/>
+                        android:scaleType="fitCenter"
+                        app:layout_constrainedWidth="true"
+                        app:layout_constrainedHeight="true"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintTop_toBottomOf="@id/dividerQr"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
 
-                </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <!-- Green Corner Overlay -->
 
@@ -189,12 +248,13 @@
 
             </FrameLayout>
 
-            <!-- View Details Button BELOW Card -->
+            <!-- View Details Button -->
 
             <Button
                 android:id="@+id/btnDetails"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
                 android:layout_marginStart="18dp"
                 android:layout_marginEnd="18dp"
                 android:layout_marginTop="12dp"
@@ -239,226 +299,233 @@
 
                 <!-- White Details Card -->
 
-                <LinearLayout
+                <ScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
                     android:background="@drawable/pass_card"
                     android:elevation="2dp"
-                    android:padding="18dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Confirmed Bus Pass"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:textColor="#555555"
-                        android:gravity="center"
-                        android:layout_marginTop="5dp"/>
-
-                   <View
-    android:layout_width="match_parent"
-    android:layout_height="2dp"
-    android:layout_marginTop="12dp"
-    android:layerType="software"
-    android:background="@drawable/dotted_line"/>
-
-                    <!-- Row 1 -->
+                    android:fillViewport="true"
+                    android:scrollbars="none">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingStart="18dp"
-                        android:paddingEnd="18dp"
-                        android:layout_marginTop="24dp">
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Confirmed Bus Pass"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:textColor="#555555"
+                            android:gravity="center"
+                            android:layout_marginTop="5dp"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:layout_marginTop="12dp"
+                            android:layerType="software"
+                            android:background="@drawable/dotted_line"/>
+
+                        <!-- Row 1 -->
 
                         <LinearLayout
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:orientation="horizontal"
+                            android:paddingStart="18dp"
+                            android:paddingEnd="18dp"
+                            android:layout_marginTop="24dp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:text="Name"
-                                android:textColor="#888888"
-                                android:textSize="14sp"/>
+                                android:layout_weight="1"
+                                android:orientation="vertical">
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Name"
+                                    android:textColor="#888888"
+                                    android:textSize="14sp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="SURAJ GUPTA"
+                                    android:textColor="#555555"
+                                    android:textSize="16sp"
+                                    android:layout_marginTop="6dp"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:text="SURAJ GUPTA"
-                                android:textColor="#555555"
-                                android:textSize="16sp"
-                                android:layout_marginTop="6dp"/>
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="end">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Employee ID"
+                                    android:textColor="#888888"
+                                    android:textSize="14sp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="2919053"
+                                    android:textColor="#555555"
+                                    android:textSize="16sp"
+                                    android:layout_marginTop="6dp"/>
+
+                            </LinearLayout>
 
                         </LinearLayout>
 
+                        <!-- Row 2 -->
+
                         <LinearLayout
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:gravity="end">
+                            android:orientation="horizontal"
+                            android:paddingStart="18dp"
+                            android:paddingEnd="18dp"
+                            android:layout_marginTop="28dp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:text="Employee ID"
-                                android:textColor="#888888"
-                                android:textSize="14sp"/>
+                                android:layout_weight="1"
+                                android:orientation="vertical">
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Bus Stop Name"
+                                    android:textColor="#888888"
+                                    android:textSize="14sp"/>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Thane Stn. E Kopari"
+                                    android:textColor="#555555"
+                                    android:textSize="16sp"
+                                    android:singleLine="true"
+                                    android:ellipsize="end"
+                                    android:layout_marginTop="6dp"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:text="2919053"
-                                android:textColor="#555555"
-                                android:textSize="16sp"
-                                android:layout_marginTop="6dp"/>
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="end">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Route Type"
+                                    android:textColor="#888888"
+                                    android:textSize="14sp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Both"
+                                    android:textColor="#555555"
+                                    android:textSize="16sp"
+                                    android:layout_marginTop="6dp"/>
+
+                            </LinearLayout>
 
                         </LinearLayout>
+
+                        <!-- Row 3 -->
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingStart="18dp"
+                            android:paddingEnd="18dp"
+                            android:layout_marginTop="28dp">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Start Date"
+                                    android:textColor="#888888"
+                                    android:textSize="14sp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="1st Sept, 2026"
+                                    android:textColor="#555555"
+                                    android:textSize="16sp"
+                                    android:layout_marginTop="6dp"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="end">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="End Date"
+                                    android:textColor="#888888"
+                                    android:textSize="14sp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="30th Sept, 2026"
+                                    android:textColor="#555555"
+                                    android:textSize="16sp"
+                                    android:layout_marginTop="6dp"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <!-- Route -->
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="42dp"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp"
+                            android:gravity="center"
+                            android:lineSpacingExtra="3dp"
+                            android:text="Route : Thane Stn. E Kopari To TCS Olympus And Return Via-FAST"
+                            android:textColor="#666666"
+                            android:textSize="14sp"/>
 
                     </LinearLayout>
 
-                    <!-- Row 2 -->
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingStart="18dp"
-                        android:paddingEnd="18dp"
-                        android:layout_marginTop="28dp">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Bus Stop Name"
-                                android:textColor="#888888"
-                                android:textSize="14sp"/>
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Thane Stn. E Kopari"
-                                android:textColor="#555555"
-                                android:textSize="16sp"
-                                android:singleLine="true"
-                                android:ellipsize="none"
-                                android:layout_marginTop="6dp"/>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:gravity="end">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Route Type"
-                                android:textColor="#888888"
-                                android:textSize="14sp"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Both"
-                                android:textColor="#555555"
-                                android:textSize="16sp"
-                                android:layout_marginTop="6dp"/>
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <!-- Row 3 -->
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingStart="18dp"
-                        android:paddingEnd="18dp"
-                        android:layout_marginTop="28dp">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Start Date"
-                                android:textColor="#888888"
-                                android:textSize="14sp"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1st Sept, 2026"
-                                android:textColor="#555555"
-                                android:textSize="16sp"
-                                android:layout_marginTop="6dp"/>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:gravity="end">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="End Date"
-                                android:textColor="#888888"
-                                android:textSize="14sp"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="30th Sept, 2026"
-                                android:textColor="#555555"
-                                android:textSize="16sp"
-                                android:layout_marginTop="6dp"/>
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <!-- Route -->
-
-                    <TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="42dp"
-    
-    android:paddingStart="12dp"
-    android:paddingEnd="12dp"
-    android:gravity="center"
-    android:lineSpacingExtra="3dp"
-    android:text="Route : Thane Stn. E Kopari To TCS Olympus And Return Via-FAST"
-    android:textColor="#666666"
-    android:textSize="14sp"/>
-
-                </LinearLayout>
+                </ScrollView>
 
                 <!-- Green Corner Overlay -->
 
@@ -472,12 +539,13 @@
 
             </FrameLayout>
 
-            <!-- View QR Button BELOW Card -->
+            <!-- View QR Button -->
 
             <Button
                 android:id="@+id/btnQR"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
                 android:layout_marginStart="18dp"
                 android:layout_marginEnd="18dp"
                 android:layout_marginTop="12dp"
